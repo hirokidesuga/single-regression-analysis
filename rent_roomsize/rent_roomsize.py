@@ -1,5 +1,4 @@
 # モジュール導入
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -11,17 +10,21 @@ df = pd.read_csv('original.csv')
 df_c = df - df.mean()
 
 # 成分抽出
-xc = df_c['x']
-yc = df_c['y']
+xc = df_c['x']  # 中心化済みx
+yc = df_c['y']  # 中心化済みy
 
-# 公式代入
+# 予想直線 y_hat = a * x
+# aを求める公式：a(傾き) = (xc * yc)の総和 / xc**2の総和
 xx = xc ** 2
 xy = xc * yc
 a = xy.sum() / xx.sum()
-y = a * xc + df.mean()['y']
 
 
-# data frame表示
+#中心化解除
+y_hat = a * xc + df.mean()['y']
+
+
+# data frame表示関数
 def print_full(x):
     pd.set_option('display.max_rows', len(x))
     print(x)
@@ -37,7 +40,7 @@ def main():
 
     # 中心化した　実際の値の分散と予想直線の描写
     plt.scatter(df['x'], df['y'], label="y")
-    plt.plot(df['x'], y, label="y_hat", color="red")
+    plt.plot(df['x'], y_hat, label="y_hat", color="red")
     plt.legend()
     plt.show()
 
