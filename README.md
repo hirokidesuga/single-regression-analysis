@@ -1,4 +1,10 @@
 # 単回帰分析
 ## rent_roomsize
+original.csv：教師データ（データ数：100）
+| x  |  y  |
+| ---- | ---- |
+|  部屋の広さ(単位：平米)  |  家賃(単位：円)  |
 
-部屋のサイズ(x, 単位:平米)から家賃を予測する(30 <= x <= 50)
+rent_roomsize.py：同一階層上の教師データ（original.csv）を学習させて、その詳細を出力するプログラム
+
+answer_rent_by_roomsize：学習済みのrent_roomsize.pyを元に、部屋のサイズ（標準入力x）から予測した家賃(y_hat)を出力するプログラム
