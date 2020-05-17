@@ -10,7 +10,11 @@ def predict(x):
 
 def main():
     print("部屋の広さxから家賃を予測できます(30 <= x <= 50, 単位：平米)")
-    room_size_input = int(input("広さ："))
+    room_size_input = float(input("広さを入力してください："))
+    output_input_is_not_correct = "\n30以上50以下の数字を入力してください"
+    while not 30 <= room_size_input <= 50:
+        print(output_input_is_not_correct)
+        room_size_input = float(input("広さを入力してください："))
     output = "広さ" + str(room_size_input) + "平米のお部屋の家賃はおおよそ" + str(predict(room_size_input)) + "円です"
     print(output)
 
