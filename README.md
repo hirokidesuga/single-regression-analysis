@@ -1,5 +1,5 @@
 # 単回帰分析
-## rent_roomsize
+## rent_roomsize(部屋の広さを元に家賃を推測する)
 original.csv：教師データ（データ数：100）
 | x  |  y  |
 | ---- | ---- |
