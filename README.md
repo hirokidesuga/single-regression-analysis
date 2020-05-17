@@ -1,4 +1,16 @@
 # 単回帰分析
+## 使用言語
+Python3.7
+## 必要なライブラリ
+Pandas(データ操作)
+```bash
+py -m pip install pandas
+```
+Matplotlib(グラフ描写)
+```bash
+py -m pip install matplotlib
+```
+
 ## rent_roomsize(部屋の広さを元に家賃を推測する)
 original.csv：教師データ（データ数：100）
 | x  |  y  |
