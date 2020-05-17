@@ -8,14 +8,21 @@ def predict(x):
     return y_hat
 
 
-def main():
-    print("部屋の広さxから家賃を予測できます(30 <= x <= 50, 単位：平米)")
-    room_size_input = float(input("広さを入力してください："))
+def get_user_input():
+    min_val = 30
+    max_val = 50
     output_input_is_not_correct = "\n30以上50以下の数字を入力してください"
-    while not 30 <= room_size_input <= 50:
-        print(output_input_is_not_correct)
+    print("部屋の広さxから家賃を予測できます(30 <= x <= 50, 単位：平米)")
+    while True:
         room_size_input = float(input("広さを入力してください："))
-    output = "広さ" + str(room_size_input) + "平米のお部屋の家賃はおおよそ" + str(predict(room_size_input)) + "円です"
+        if min_val <= room_size_input <= max_val:
+            return room_size_input
+        print(output_input_is_not_correct)
+
+
+def main():
+    user_input = get_user_input()
+    output = "広さ" + str(user_input) + "平米のお部屋の家賃はおおよそ" + str(predict(user_input)) + "円です"
     print(output)
 
 
